@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #5B5BF7;
+  --color-secondary: #7C3AED;
+  --color-accent: #06B6D4;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  
+  --color-light-bg: #F8FAFC;
+  --color-light-card: #FFFFFF;
+  
+  --color-dark-bg: #0F172A;
+  --color-dark-card: #1E293B;
+  
+  --radius-premium: 20px;
+  --radius-premium-lg: 24px;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --animate-gradient-flow: gradient-flow 15s ease infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s infinite;
+  --animate-fade-up: fade-up 0.5s ease-out forwards;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom premium scrollbar style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Glassmorphism Utilities */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-effect {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-effect-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-effect-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(91, 91, 247, 0.15);
+  border-color: rgba(91, 91, 247, 0.3);
+}
+
+.dark .glass-effect-hover:hover {
+  box-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.25);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+/* Calendar styling overrides for modern flat clean layout */
+.rbc-calendar {
+  font-family: inherit;
+  border: none !important;
+}
+
+.rbc-header {
+  padding: 12px !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid rgba(226, 232, 240, 0.8) !important;
+  color: #64748B !important;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.dark .rbc-header {
+  border-bottom: 2px solid rgba(51, 65, 85, 0.8) !important;
+  color: #94A3B8 !important;
+}
+
+.rbc-month-view, .rbc-time-view {
+  border: none !important;
+}
+
+.rbc-day-bg {
+  border-left: 1px solid rgba(226, 232, 240, 0.5) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5) !important;
+}
+
+.dark .rbc-day-bg {
+  border-left: 1px solid rgba(51, 65, 85, 0.4) !important;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.4) !important;
+}
+
+.rbc-off-range-bg {
+  background: rgba(241, 245, 249, 0.4) !important;
+}
+
+.dark .rbc-off-range-bg {
+  background: rgba(15, 23, 42, 0.3) !important;
+}
+
+.rbc-today {
+  background: rgba(91, 91, 247, 0.05) !important;
+}
+
+.dark .rbc-today {
+  background: rgba(91, 91, 247, 0.1) !important;
+}
+
+.rbc-event {
+  background: #5B5BF7 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 6px -1px rgba(91, 91, 247, 0.2) !important;
+}
+
+.rbc-event-content {
+  font-size: 0.75rem !important;
+}
+
+.rbc-toolbar button {
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  color: #475569 !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s !important;
+}
+
+.dark .rbc-toolbar button {
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  color: #E2E8F0 !important;
+}
+
+.rbc-toolbar button:hover, .rbc-toolbar button:active, .rbc-toolbar button.rbc-active {
+  background: #5B5BF7 !important;
+  color: white !important;
+  border-color: #5B5BF7 !important;
+}
+
+.rbc-month-row {
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5) !important;
+}
+
+.dark .rbc-month-row {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.4) !important;
+}
